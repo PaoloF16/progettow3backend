@@ -3,7 +3,12 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="progettobackend2">
-        <class>paolof16.entities.</class>
+        <class>paolof16.entities.Catalog</class>
+        <class>paolof16.entities.Loan</class>
+        <class>paolof16.entities.User</class>
+        <class>paolof16.entities.Book</class>
+        <class>paolof16.entities.Magazine</class>
+
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/progettobackend2"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>

@@ -9,7 +9,7 @@ import java.util.UUID;
 @Entity
 public class Loan {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID userid;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -25,7 +25,7 @@ public class Loan {
 
 
     public Loan(){}
-    public Loan(LocalDate inizioPrestito,LocalDate dataRestituzione,LocalDate dataRestituzioneEfettiva,Catalog catalogid,User user_id){
+    public Loan(LocalDate inizioPrestito,LocalDate dataRestituzione,LocalDate dataRestituzioneEfettiva,Catalog catalogid,User user){
         this.inizioPrestito = LocalDate.now();
         this.dataRestituzione = LocalDate.now().plusDays(30);
         this.dataRestituzione = dataRestituzione;
