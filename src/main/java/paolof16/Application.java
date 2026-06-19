@@ -95,19 +95,19 @@ public class Application {
                 342432);
         User u5 = new User("Francesco", "Rossi", LocalDate.of(1988, 11, 8),
                 432432);
-       /* ud.save(u1);
+      /*  ud.save(u1);
         ud.save(u2);
         ud.save(u3);
         ud.save(u4);
         ud.save(u5);*/
 
 
-        /*User user1fromDb = ud.findById("3987580e-f844-4717-9cf4-2b1e9e51c4a6");
+        User user1fromDb = ud.findById("3987580e-f844-4717-9cf4-2b1e9e51c4a6");
         System.out.println(user1fromDb.toString());
         Catalog book1fromDb = catalogdao.findById("30849664-2d97-4b2b-903e-2774331a7afd");
         System.out.println(book1fromDb.toString());
         Catalog magazine1fromDb = catalogdao.findById("67eca0e2-0047-4d36-b97b-bf48fc8b2c68");
-        System.out.println(magazine1fromDb.toString());*/
+        System.out.println(magazine1fromDb.toString());
 
         //prestiti
         LoanDAO loan = new LoanDAO(entityManager);
@@ -117,10 +117,10 @@ public class Application {
         Loan loan2 = new Loan(u1, book9, LocalDate.of(2025, 7, 1));
 
         Loan loan3 = new Loan(u3, book10, LocalDate.of(2025, 6, 1), LocalDate.of(2025, 6, 28));
-
+/*
         loan.save(loan1);
         loan.save(loan2);
-        loan.save(loan3);
+        loan.save(loan3);*/
 
 
        Catalog foundElement = catalogdao.findById("3987580e-f844-4717-9cf4-2b1e9e51c4a6");
@@ -128,10 +128,15 @@ public class Application {
         System.out.println(foundElement);
 
         catalogdao.deleteById("3987580e-f844-4717-9cf4-2b1e9e51c4a6");
-        catalogdao.findById("40b3ba0c-8225-475b-9d60-42df6a8e30bd");
-        catalogdao.findByYear(2026);
-        catalogdao.findByTitleContaining("People");
-        catalogdao.findByAuthor("J.R.R. Tolkien");
+        Catalog catalogbyid = catalogdao.findById("40b3ba0c-8225-475b-9d60-42df6a8e30bd");
+        System.out.println(catalogbyid);
+
+        List<Catalog> elementibyyear = catalogdao.findByYear(2026);
+        System.out.println(elementibyyear);
+        List<Catalog> elementsbytitle = catalogdao.findByTitleContaining("People");
+        System.out.println(elementsbytitle);
+        List<Catalog> elementbyauthor = catalogdao.findByAuthor("J.R.R. Tolkien");
+        System.out.println(elementbyauthor);
 
     }
 

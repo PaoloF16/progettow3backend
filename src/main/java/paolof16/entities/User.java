@@ -69,7 +69,6 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", birthDate=" + birthDate +
                 ", cardNumber=" + cardNumber +
-                ", prestiti=" + prestiti +
                 '}';
     }
 }

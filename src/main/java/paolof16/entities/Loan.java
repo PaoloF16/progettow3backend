@@ -10,7 +10,8 @@ import java.util.UUID;
 public class Loan {
     @Id
     @GeneratedValue
-    private UUID userid;
+    @Column(name = "loan_id")
+    private UUID id;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -27,12 +28,11 @@ public class Loan {
 
     public Loan() {}
 
-
     public Loan(User user, Catalog catalog, LocalDate inizioPrestito) {
         this.user = user;
         this.catalog = catalog;
         this.inizioPrestito = inizioPrestito;
-        this.dataRestituzione = inizioPrestito.plusDays(30); // Se calcula en base a la fecha de inicio
+        this.dataRestituzione = inizioPrestito.plusDays(30);
     }
 
 
@@ -44,18 +44,12 @@ public class Loan {
         this.dataRestituzioneEfettiva = dataRestituzioneEfettiva;
     }
 
-    public Loan(User u1, Book book5, LocalDate now) {
-    }
-
-    public Loan(User u3, Book book10, LocalDate of, LocalDate of1) {
-    }
-
     public void setDataRestituzioneEfettiva(LocalDate dataRestituzioneEfettiva) {
         this.dataRestituzioneEfettiva = dataRestituzioneEfettiva;
     }
 
     public UUID getUserid() {
-        return userid;
+        return id;
     }
 
     public LocalDate getInizioPrestito() {
@@ -81,7 +75,7 @@ public class Loan {
     @Override
     public String toString() {
         return "Loan{" +
-                "userid=" + userid +
+                "userid=" + id +
                 ", user=" + user +
                 ", inizioPrestito=" + inizioPrestito +
                 ", dataRestituzione=" + dataRestituzione +

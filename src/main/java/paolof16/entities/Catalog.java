@@ -71,7 +71,6 @@ public abstract class Catalog {
         return "Catalog{" +
                 "id=" + id +
                 ", isbn='" + isbn + '\'' +
-                ", prestiti=" + prestiti +
                 ", title='" + title + '\'' +
                 ", yearPublish=" + yearPublish +
                 ", numberPages=" + numberPages +
