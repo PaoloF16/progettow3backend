@@ -127,13 +127,13 @@ public class Application {
         System.out.println("Elemento trovato nel catalogo:");
         System.out.println(foundElement);
 
-        catalogdao.deleteById("3987580e-f844-4717-9cf4-2b1e9e51c4a6");
-        Catalog catalogbyid = catalogdao.findById("40b3ba0c-8225-475b-9d60-42df6a8e30bd");
+        catalogdao.deleteById("9780316769174");
+        Catalog catalogbyid = catalogdao.findById("28f4fe55-5bda-44f8-865f-c354f6f9970c");
         System.out.println(catalogbyid);
 
         List<Catalog> elementibyyear = catalogdao.findByYear(2026);
         System.out.println(elementibyyear);
-        List<Catalog> elementsbytitle = catalogdao.findByTitleContaining("People");
+        List<Catalog> elementsbytitle = catalogdao.findByTitleContaining("Attack on Titan Vol. 1");
         System.out.println(elementsbytitle);
         List<Catalog> elementbyauthor = catalogdao.findByAuthor("J.R.R. Tolkien");
         System.out.println(elementbyauthor);
