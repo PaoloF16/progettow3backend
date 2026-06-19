@@ -13,9 +13,12 @@ import java.util.UUID;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Catalog {
     @Id
-    @Column(name = "code_isbn",nullable = false)
     @GeneratedValue
-    private UUID codeISBN;
+    @Column(name = "catalog_id")
+    private UUID id;
+
+    @Column(name = "isbn", unique = true, nullable = false)
+    private String isbn;
 
     @OneToMany(mappedBy = "catalog")
     private List<Loan> prestiti = new ArrayList<>();
@@ -32,15 +35,23 @@ public abstract class Catalog {
     protected Catalog(){
     }
 
-    public Catalog(String title,LocalDate yearPublish,int numberPages){
+    public Catalog(String title,String isbn,LocalDate yearPublish,int numberPages){
         this.title = title;
+        this.isbn = isbn;
         this.yearPublish = yearPublish;
         this.numberPages = numberPages;
     }
 
+    public UUID getId() {
+        return id;
+    }
 
-    public UUID getCodeISBN() {
-        return codeISBN;
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public List<Loan> getPrestiti() {
+        return prestiti;
     }
 
     public String getTitle() {
@@ -58,7 +69,9 @@ public abstract class Catalog {
     @Override
     public String toString() {
         return "Catalog{" +
-                "codeISBN=" + codeISBN +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", prestiti=" + prestiti +
                 ", title='" + title + '\'' +
                 ", yearPublish=" + yearPublish +
                 ", numberPages=" + numberPages +

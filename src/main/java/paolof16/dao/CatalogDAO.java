@@ -24,9 +24,9 @@ public class CatalogDAO {
         System.out.println("The item " + newItem.getTitle() + " was successfully added to the catalog!");
     }
 
-    public Catalog findById(UUID codeISBN) {
-        Catalog found = entityManager.find(Catalog.class, codeISBN);
-        if (found == null) throw new NotFoundException(codeISBN);
+    public Catalog findById(String isbn) {
+        Catalog found = entityManager.find(Catalog.class, UUID.fromString(isbn));
+        if (found == null) throw new NotFoundException(isbn);
         return found;
     }
 
@@ -62,13 +62,20 @@ public class CatalogDAO {
         return query.getResultList();
     }
 
-    public void deleteById(UUID codeISBN) {
-        Catalog found = this.findById(codeISBN);
+    public void deleteById(String isbn) {
+        Catalog found = this.findById(isbn);
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         entityManager.remove(found);
         transaction.commit();
 
-        System.out.println("The item * " + found.getCodeISBN() + " " + found.getTitle() + " * was successfully deleted from the database.");
+        System.out.println("The item * " + found.getId() + " " + found.getTitle() + " * was successfully deleted from the database.");
+    }
+
+    @Override
+    public String toString() {
+        return "CatalogDAO{" +
+                "entityManager=" + entityManager +
+                '}';
     }
 }

@@ -24,14 +24,30 @@ public class Loan {
     private Catalog catalog;
 
 
-    public Loan(){}
-    public Loan(LocalDate inizioPrestito,LocalDate dataRestituzione,LocalDate dataRestituzioneEfettiva,Catalog catalogid,User user){
-        this.inizioPrestito = LocalDate.now();
-        this.dataRestituzione = LocalDate.now().plusDays(30);
-        this.dataRestituzione = dataRestituzione;
-        this.catalog = catalogid;
-        this.user = user;
 
+    public Loan() {}
+
+
+    public Loan(User user, Catalog catalog, LocalDate inizioPrestito) {
+        this.user = user;
+        this.catalog = catalog;
+        this.inizioPrestito = inizioPrestito;
+        this.dataRestituzione = inizioPrestito.plusDays(30); // Se calcula en base a la fecha de inicio
+    }
+
+
+    public Loan(User user, Catalog catalog, LocalDate inizioPrestito, LocalDate dataRestituzioneEfettiva) {
+        this.user = user;
+        this.catalog = catalog;
+        this.inizioPrestito = inizioPrestito;
+        this.dataRestituzione = inizioPrestito.plusDays(30);
+        this.dataRestituzioneEfettiva = dataRestituzioneEfettiva;
+    }
+
+    public Loan(User u1, Book book5, LocalDate now) {
+    }
+
+    public Loan(User u3, Book book10, LocalDate of, LocalDate of1) {
     }
 
     public void setDataRestituzioneEfettiva(LocalDate dataRestituzioneEfettiva) {

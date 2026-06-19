@@ -15,8 +15,8 @@ public class Book extends Catalog {
     private GenreBook genre;
 
     public Book(){}
-    public Book(String title,LocalDate yearPublish,int numberPages,String author,GenreBook genre){
-        super(title,yearPublish,numberPages);
+    public Book(String title,String isbn,LocalDate yearPublish,int numberPages,String author,GenreBook genre){
+        super(title,isbn,yearPublish,numberPages);
         this.author = author;
         this.genre = genre;
     }

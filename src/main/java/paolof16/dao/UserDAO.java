@@ -22,9 +22,16 @@ public class UserDAO {
         System.out.println("User saved: " + newUser.getId());
     }
 
-    public User findById(UUID id) {
-        User user = em.find(User.class, id);
+    public User findById(String id) {
+        User user = em.find(User.class, UUID.fromString(id));
         if (user == null) throw new UserNotFoundException(id);
         return user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDAO{" +
+                "em=" + em +
+                '}';
     }
 }

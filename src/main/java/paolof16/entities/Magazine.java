@@ -14,8 +14,8 @@ public class Magazine extends Catalog{
     private Currently periodicita;
 
     public Magazine (){}
-    public Magazine (String title, LocalDate yearPublish, int numberPages,Currently periodicita){
-        super(title,yearPublish,numberPages);
+    public Magazine (String title,String isbn,LocalDate yearPublish,int numberPages,Currently periodicita){
+        super(title,isbn,yearPublish,numberPages);
         this.periodicita = periodicita;
     }
 

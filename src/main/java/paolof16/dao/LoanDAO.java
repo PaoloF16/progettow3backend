@@ -18,4 +18,11 @@ public class LoanDAO {
         transaction.commit();
         System.out.println("Borrow saved with ID: " + loan.getUserid());
     }
+
+    @Override
+    public String toString() {
+        return "LoanDAO{" +
+                "em=" + em +
+                '}';
+    }
 }
