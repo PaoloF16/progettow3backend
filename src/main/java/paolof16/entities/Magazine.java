@@ -1,8 +1,16 @@
 package paolof16.entities;
 
-import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
+import paolof16.enums.Currently;
 
+import java.time.LocalDate;
+@Entity
+@Table(name="magazines")
 public class Magazine extends Catalog{
+    @Enumerated(EnumType.STRING)
     private Currently periodicita;
 
     public Magazine (){}

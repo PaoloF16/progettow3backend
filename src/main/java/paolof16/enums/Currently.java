@@ -1,4 +1,4 @@
-package paolof16.entities;
+package paolof16.enums;
 
 public enum Currently {
     WEEKLY, MONTHLY, SEMESTER

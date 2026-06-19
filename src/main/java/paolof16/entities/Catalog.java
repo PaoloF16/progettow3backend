@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "catalog_items")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Catalog {
     @Id
     @Column(name = "code_isbn",nullable = false)

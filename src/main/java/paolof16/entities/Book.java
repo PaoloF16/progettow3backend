@@ -1,11 +1,17 @@
 package paolof16.entities;
 
+import jakarta.persistence.*;
 import paolof16.enums.GenreBook;
 
 import java.time.LocalDate;
-
+@Entity
+@Table(name = "books")
 public class Book extends Catalog {
+    @Column(nullable = false,length = 120)
     private String author;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private GenreBook genre;
 
     public Book(){}
