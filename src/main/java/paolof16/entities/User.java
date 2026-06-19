@@ -21,8 +21,8 @@ public class User {
     private String surname;
     @Column(name = "date_of_birth")
     private LocalDate birthDate;
-    @OneToMany(mappedBy = "user")
     private int cardNumber;
+    @OneToMany(mappedBy = "user")
     private List<Loan> prestiti = new ArrayList<>();
 
     public User(){}

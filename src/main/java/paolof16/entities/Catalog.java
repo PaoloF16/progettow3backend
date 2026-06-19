@@ -3,17 +3,22 @@ package paolof16.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
 @Entity
 @Table(name = "catalog_items")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Catalog {
     @Id
     @Column(name = "code_isbn",nullable = false)
     @GeneratedValue
     private UUID codeISBN;
+
+    @OneToMany(mappedBy = "catalog")
+    private List<Loan> prestiti = new ArrayList<>();
 
     @Column(nullable = false)
     private String title;
@@ -22,6 +27,7 @@ public abstract class Catalog {
     private LocalDate yearPublish;
 
     private int numberPages;
+
 
     protected Catalog(){
     }
